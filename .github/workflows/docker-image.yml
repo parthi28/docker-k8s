@@ -68,7 +68,7 @@ jobs:
 
     - name: Dockerize application
       run: |
-        docker build -t vilasvarghese/test .
+        docker build -t ${{ secrets.GIT_HUB_USERNAME }}/test .
         # Push the Docker image to a container registry if needed
         # docker push your-registry/your-image-name
 
@@ -88,7 +88,7 @@ jobs:
         password: ${{ secrets.GIT_HUB_PASSWORD }}
         
     - name: Push to DockerHub
-      run: docker push vilasvarghese/test
+      run: docker push ${{ secrets.GIT_HUB_USERNAME }}/test
 
 # This takes a very long time to produce results. Hence commenting.  
 #    - name: ZAP Scan
